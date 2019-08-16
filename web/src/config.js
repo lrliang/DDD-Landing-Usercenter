@@ -5,10 +5,10 @@ export default {
   oidc: {
     clientId: CLIENT_ID,
     issuer: ISSUER,
-    redirectUri: 'http://localhost:3000/implicit/callback',
+    redirectUri: 'http://120.79.48.68/user-center/implicit/callback',
     scope: 'openid profile email',
   },
   resourceServer: {
-    usersUrl: 'http://localhost:8000/api/messages',
+    usersUrl: 'http://120.79.48.68/api/messages',
   },
 };
