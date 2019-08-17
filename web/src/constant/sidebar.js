@@ -7,7 +7,7 @@ export default [
   {
     name: '用户管理',
     icon: 'appstore-o',
-    linkTo: '/message',
+    linkTo: '/messages',
   },
   {
     name: '当前用户',

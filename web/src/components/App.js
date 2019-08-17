@@ -12,7 +12,7 @@ import Home from '../containers/Home'
 class App extends Component {
   render () {
     return (
-      <Router basename='/user-center'>
+      <Router basename='user-center'>
         <Security
           issuer={config.oidc.issuer}
           client_id={config.oidc.clientId}
@@ -20,7 +20,7 @@ class App extends Component {
         >
           <BasicLayout>
             <Route exact path='/' component={Home}/>
-            <Route path="/implicit/callback" component={ImplicitCallback}/>
+            <Route path="/implicit" component={ImplicitCallback}/>
             <SecureRoute exact path='/users' component={UserManagement}/>
             <SecureRoute path="/messages" component={Messages}/>
             <SecureRoute path="/profile" component={Profile}/>

@@ -2,7 +2,7 @@ import { withAuth } from '@okta/okta-react'
 import React, { Component } from 'react'
 import config from '../config'
 
-class Profile extends Component {
+class Messages extends Component {
   constructor (props) {
     super(props)
     this.state = {message: null, failed: null}
@@ -13,10 +13,10 @@ class Profile extends Component {
   }
 
   async getMessage () {
-    if (!this.state.users) {
+    if (!this.state.message) {
       try {
         const accessToken = await this.props.auth.getAccessToken()
-        const response = await fetch(config.resourceServer.usersUrl, {
+        const response = await fetch(config.resourceServer.messageUrl, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
@@ -38,12 +38,12 @@ class Profile extends Component {
     return (
       <div>
         {this.state.failed === true &&
-        <div>Failed to fetch users. Please verify the following:</div>}
+        <div>Failed to fetch message. Please verify the following:</div>}
         {this.state.failed === null && <p>Fetching Users..</p>}
         {this.state.messages &&
         <div>
           <p>This component makes a GET request to the resource server example,
-            which must be running at <code>localhost:8000/api/users</code></p>
+            which must be running at <code>localhost:8000/api/message</code></p>
           <p>
             It attaches your current access token in
             the <code>Authorization</code> header on the request,
@@ -76,4 +76,4 @@ class Profile extends Component {
   }
 }
 
-export default withAuth(Profile)
+export default withAuth(Messages)
