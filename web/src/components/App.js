@@ -12,7 +12,7 @@ import Home from '../containers/Home'
 class App extends Component {
   render () {
     return (
-      <Router>
+      <Router basename='/user-center'>
         <Security
           issuer={config.oidc.issuer}
           client_id={config.oidc.clientId}
