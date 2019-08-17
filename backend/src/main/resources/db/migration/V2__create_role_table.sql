@@ -1,5 +1,0 @@
-CREATE TABLE `role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(200),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;

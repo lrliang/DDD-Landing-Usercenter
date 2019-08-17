@@ -44,6 +44,7 @@ repositories {
 sourceCompatibility = 1.8
 
 dependencies {
+    runtime('com.h2database:h2:1.4.193')
     compile 'org.springframework.boot:spring-boot-starter'
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-web'

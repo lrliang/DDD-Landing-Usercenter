@@ -4,20 +4,35 @@ server:
     context-path: /
 
 database:
-  url: jdbc:mysql://localhost:3306/LLR-User?useUnicode=true&characterEncoding=utf-8
-  username: root
-  password: pass
+#  url: jdbc:mysql://localhost:3306/LLR-User?useUnicode=true&characterEncoding=utf-8
+#  username: root
+#  password: pass
+#  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:h2:mem:test_db;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1
+  username: sa
+  password: sa
+  driverClassName: org.h2.Driver
+
 spring:
   cloud:
     config:
       allowOverride: true
       overrideNone: true
       overrideSystemProperties: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: true
   datasource:
     url: ${database.url}
     username: ${database.username}
     password: ${database.password}
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: ${database.driverClassName}
+    platform: h2
+    type: com.zaxxer.hikari.HikariDataSource
+    continue-on-error: true
   jpa:
     hibernate:
       naming:

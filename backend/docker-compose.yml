@@ -1,0 +1,17 @@
+version: '2'
+services:
+  user-center:
+    image: java:8
+    container_name: user-center
+    ports:
+      - 8080:8080
+    volumes:
+      - ./:/home/app
+      - ~/.gradle:/root/.gradle
+    command: sh -c "cd /home/app && ./gradlew clean build && java -jar build/libs/backend-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod"
+    networks:
+      main:
+        aliases:
+          - user-center
+networks:
+  main:
